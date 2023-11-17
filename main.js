@@ -10,6 +10,7 @@
     if (email.validity.valid && country.validity.valid && zipCode.validity.valid && password.validity.valid && passwordConfirmation.validity.valid){
       e.preventDefault();
       form.reset();
+      resetClasses();
       alert('¡HIGH FIVE!');
     }
   })
@@ -99,5 +100,22 @@
     target.classList.add('is-valid');
     target.setCustomValidity('');
     return true;
+  }
+
+  function resetClasses(){
+    email.classList.remove('is-valid');
+    email.classList.remove('is-invalid');
+    country.classList.remove('is-valid');
+    country.classList.remove('is-invalid');
+    zipCode.classList.remove('is-valid');
+    zipCode.classList.remove('is-invalid');
+    password.classList.remove('is-valid');
+    password.classList.remove('is-invalid');
+    passwordConfirmation.classList.remove('is-valid');
+    passwordConfirmation.classList.remove('is-invalid');    
+    focusOnFirst();
+  }
+  function focusOnFirst(){
+    email.focus();
   }
 })();
